@@ -1,0 +1,33 @@
+version: "3"
+services:
+  nodejs-service:
+    container_name: "node-zscan"
+    build: "."
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    depends_on:
+      - postgres-service
+    networks:
+      - services-connect
+    ports:
+      - 3001:3001
+
+  postgres-service:
+    image: postgres
+    container_name: "postgres_zscan"
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: zscan_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 8081:8081
+    volumes:
+      - "./db/zscan_db/data"
+    networks: 
+      - services-connect
+
+networks:
+  services-connect:
+    driver: bridge

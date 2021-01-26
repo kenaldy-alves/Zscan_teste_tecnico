@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<header></header>
+<body>
+    <ul id="nav">
+        <li>Home</li>
+        <li>Quem somos </li>
+        <li>Produtos</li>
+        <li>Onde Comprar</li>
+        <li>Contato</li>
+    </ul>
+</body>
+<footer></footer>
+</html>
+<script>
+    let listItems = document.getElementById('nav')
+	let liChildrens = listItems.children
+
+	for(var i = 0; i < liChildrens.length; i++){
+
+		switch(liChildrens[i].innerText ){
+			case 'Home':
+			case 'Produtos':
+			case 'Contatos':
+				liChildrens[i].style.color = 'red'
+				break;
+			default:
+			liChildrens[i].style.fontWeight = 'bold'
+			break;
+		}
+	}
+
+</script>

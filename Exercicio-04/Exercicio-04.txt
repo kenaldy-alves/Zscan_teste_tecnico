@@ -1,0 +1,55 @@
+
+A)
+
+SELECT Distinct users.id, users.name, users.created, groups.id from users INNER JOIN groups ON  users.id = groups.id 
+	WHERE 
+    users.created <= '2021-01-31'
+    AND
+    users.created >= '2021-01-01'
+    AND
+    	groups.id  IN (15, 40)
+GROUP BY
+    users.id, groups.id
+
+B)
+
+SELECT EXISTS 
+	(
+      SELECT * from users 
+		WHERE 
+    		users.login = 'kenaldy'
+    	AND
+    		users.password_ in (SELECT SHA1('my_password'))
+      )
+
+C)
+
+INSERT INTO users (id, login, password, nome, created)
+    VALUES 
+	(@id , 'USER', SHA1('password'), 'USER_NAME', '26-01-2021')
+
+INSERT INTO groups (id, user_id, name, description)
+    VALUES
+        ( @id, LAST_INSERT_ID(), 'GROUP_NAME', 'description')
+
+D)
+
+SELECT Distinct users.user_id, users.nome, users.created, permissions.id
+	from 
+    	users 
+    	INNER JOIN groups ON  users.id = groups.users_id 
+        INNER JOIN permissions ON groups.id = permissions.groups_id
+	WHERE 
+    	permissions.id = IN (55, 80, 48)
+    GROUP BY
+    users.id, groups.id, permissions.id 
+
+
+E)
+
+alter table permissions nocheck constraint all
+alter table groups nocheck constraint all
+
+DELETE FROM permissions
+DELETE FROM groups
+DELETE FROM users

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<header></header>
+<body>
+    <ul id="nav">
+        <li>Home</li>
+        <li>Quem somos </li>
+        <li>Produtos</li>
+        <li>Onde Comprar</li>
+        <li>Contato</li>
+    </ul>
+</body>
+<footer></footer>
+</html>
+<script>
+    let listItems = document.getElementById('nav')
+
+    listItems.addEventListener('click', (e) => {
+        e.target.tagName === 'LI' ? alert(e.target.textContent) : null
+    })
+</script>

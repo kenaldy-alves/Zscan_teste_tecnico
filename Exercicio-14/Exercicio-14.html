@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<style>
+	li:first-child {
+		visibility: hidden;
+	}
+
+	li:first-child::before {
+		visibility: visible;
+		position: absolute;
+		content: 'Contato';
+	}
+
+	li:nth-child(2) {
+		visibility: hidden;
+	}
+
+	li:nth-child(2)::before {
+		visibility: visible;
+		content: 'Onde Comprar';
+	}
+
+	li:nth-child(3) {
+		visibility: hidden;
+	}
+
+	li:nth-child(3)::before {
+		visibility: visible;
+		content: 'Produtos';
+	}
+
+	li:nth-last-child(2) {
+		visibility: hidden;
+	}
+
+	li:nth-last-child(2)::before {
+		visibility: visible;
+		content: 'Quem Somos';
+	}
+
+	li:last-child {
+		visibility: hidden;
+	}
+
+	li:last-child::before {
+		visibility: visible;
+		content: 'Home';
+	}
+</style>
+<html>
+<header></header>
+
+<body>
+	<ul id="nav">
+		<li>Home</li>
+		<li>Quem somos </li>
+		<li>Produtos</li>
+		<li>Onde Comprar</li>
+		<li>Contato</li>
+	</ul>
+</body>
+<footer></footer>
+
+</html>
+<script></script>
